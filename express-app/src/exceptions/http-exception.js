@@ -9,5 +9,7 @@ export class HttpException extends Error{
 }
 
 export const ErrorCode = {
-  INTERNAL_ERROR: 1001
+  INTERNAL_ERROR: 1001,
+  VALIDATION_FAILURE: 2001,
+  DATA_NOT_FOUND: 3001
 }

@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises'
-import { ErrorCode } from "../exceptions/http-exception.js";
+import { ErrorCode, HttpException } from "../exceptions/http-exception.js";
 import { InternalException } from "../exceptions/internal-exception.js";
 
 class JsonDataHandler {
@@ -30,8 +30,6 @@ class JsonDataHandler {
 
     let countryMetricsArr = [];
 
-    console.log(prefix);
-
     if(prefix === ''){
       countryMetricsArr = this.countryMetrics;
     }else{
@@ -46,6 +44,20 @@ class JsonDataHandler {
     }
 
     return countryMetricsArr.map((dataObj) => dataObj.country );
+  }
+
+  async getMetrics(country){
+    await this.loadDataFromFile();
+
+    const countryDataArr = this.countryMetrics.filter((dataObj) => {
+      return dataObj.country == country;
+    })
+
+    if(countryDataArr.length == 0){
+      throw new HttpException('No metrics found', ErrorCode.DATA_NOT_FOUND, 404, 'Data not found');
+    }
+    
+    return countryDataArr[0].metrics;
   }
 }
 
