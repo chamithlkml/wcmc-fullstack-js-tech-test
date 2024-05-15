@@ -25,11 +25,27 @@ class JsonDataHandler {
     }
   }
 
-  async getCountries(){
+  async getCountries(prefix=''){
     await this.loadDataFromFile();
-    const countries = this.countryMetrics.map((dataObj) => dataObj.country );
 
-    return countries;
+    let countryMetricsArr = [];
+
+    console.log(prefix);
+
+    if(prefix === ''){
+      countryMetricsArr = this.countryMetrics;
+    }else{
+      countryMetricsArr = this.countryMetrics.filter((dataObj) => {
+        let words = dataObj.country.split(' ');
+        let matchingWords = words.filter((word) => {
+          return word.startsWith(prefix);
+        });
+        
+        return matchingWords.length > 0;
+      });
+    }
+
+    return countryMetricsArr.map((dataObj) => dataObj.country );
   }
 }
 
