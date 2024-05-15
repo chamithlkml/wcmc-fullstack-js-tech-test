@@ -1,0 +1,33 @@
+{
+  "name": "express-app",
+  "version": "1.0.0",
+  "main": "./src/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --require babel-core/register --require babel-polyfill",
+    "start": "nodemon --exec babel-node ./src/server.js"
+  },
+  "author": "Chamith",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "babel-node": "^0.0.1-security",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "winston": "^3.13.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.24.5",
+    "@babel/core": "^7.24.5",
+    "@babel/preset-env": "^7.24.5",
+    "babel-core": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^5.1.1",
+    "mocha": "^10.4.0",
+    "nodemon": "^3.1.0",
+    "supertest": "^7.0.0"
+  }
+}
