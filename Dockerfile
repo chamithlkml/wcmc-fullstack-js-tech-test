@@ -1,6 +1,7 @@
 FROM node:lts-alpine3.19
 
 RUN apk add busybox-extras
+RUN npm install -g babel-cli
 
 WORKDIR /app
 COPY . .
