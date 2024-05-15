@@ -9,7 +9,6 @@ const Country = () => {
   const [typedValue, setTypedValue] = useState('');
 
   const getSuggestions = (prefix) => {
-    console.log(prefix);
     return new Promise((resolve, reject) => {
       fetch(`http://localhost:8080/api/countries?prefix=${prefix}`, {
         headers: {
@@ -18,7 +17,6 @@ const Country = () => {
       })
       .then(response => response.json())
       .then(data => {
-        console.log(data)
         if(data.errors){
           reject(data.errors)
         }else{
@@ -102,11 +100,7 @@ const Country = () => {
         <div className='col-md-4'></div>
       </div>
       <div className='row mt-4'>
-        <div className='col-md-4'></div>
-        <div className="col-md-4">
-          {showMetrics && <Metrics metrics={metrics} />}
-        </div>
-        <div className='col-md-4'></div>
+        {showMetrics && <Metrics metrics={metrics} />}
       </div>
     </div>
   );
