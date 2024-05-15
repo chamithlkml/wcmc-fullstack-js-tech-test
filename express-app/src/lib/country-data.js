@@ -6,9 +6,9 @@ class CountryData {
   /**
    * Returns all countries
    */
-  async getAll(){
+  async getAll(prefix=''){
     // unsanitized data
-    const countries = await this.dataHandler.getCountries();
+    const countries = await this.dataHandler.getCountries(prefix);
     // Removing duplicates
     let uniqueCountries = [...new Set(countries)];
     // Sorted
