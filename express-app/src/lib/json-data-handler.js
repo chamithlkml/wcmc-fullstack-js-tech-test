@@ -58,7 +58,7 @@ class JsonDataHandler {
       throw new HttpException('No metrics found', ErrorCode.DATA_NOT_FOUND, 404, 'Data not found');
     }
     
-    return countryDataArr[0].metrics;
+    return countryDataArr[0];
   }
 }
 
