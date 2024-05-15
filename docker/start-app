@@ -1,2 +1,6 @@
 #!/usr/bin/env sh
+
+cd /app/express-app && npm install
+cd /app/react-app && npm install
+
 tail -f /dev/null
