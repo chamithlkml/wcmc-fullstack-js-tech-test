@@ -33,10 +33,11 @@ class JsonDataHandler {
     if(prefix === ''){
       countryMetricsArr = this.countryMetrics;
     }else{
+      const prefixLowercase = prefix.toLowerCase();
       countryMetricsArr = this.countryMetrics.filter((dataObj) => {
         let words = dataObj.country.split(' ');
         let matchingWords = words.filter((word) => {
-          return word.startsWith(prefix);
+          return word.toLowerCase().startsWith(prefixLowercase);
         });
         
         return matchingWords.length > 0;
