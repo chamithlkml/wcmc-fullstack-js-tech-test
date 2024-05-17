@@ -7,6 +7,7 @@
 - `cd wcmc-fullstack-js-tech-test`
 - `cp .example-env .env`
 - `cd express-app && cp .example-env .env`
+- `cd ../express-app/src && cp config-example.json config.json` and edit the auth_token
 - `docker compose build`
 - `docker compose up -d`
 
