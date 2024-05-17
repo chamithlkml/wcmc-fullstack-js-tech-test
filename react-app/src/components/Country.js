@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Metrics from './Metrics.js';
 import Autosuggest from 'react-autosuggest'
+import config from '../config.json';
 
 const Country = () => {
   const [showMetrics, setShowMetrics] = useState(false);
@@ -12,7 +13,7 @@ const Country = () => {
     return new Promise((resolve, reject) => {
       fetch(`http://localhost:8080/api/countries?prefix=${prefix}`, {
         headers: {
-          'X-Auth-Token': 'SECRET12345'
+          'X-Auth-Token': config.auth_token
         }
       })
       .then(response => response.json())
@@ -49,7 +50,7 @@ const Country = () => {
   const handleSubmission = (countryName) => {
     fetch(`http://localhost:8080/api/metrics?country=${countryName}`, {
         headers: {
-          'X-Auth-Token': 'SECRET12345'
+          'X-Auth-Token': config.auth_token
         }
       })
       .then(response => response.json())
