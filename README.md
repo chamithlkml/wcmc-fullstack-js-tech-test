@@ -23,6 +23,8 @@
 - `cd react-app`
 - `npm run start`
 
+### Postman collection related to the API endpoints is available at wcmc-tech-test.postman_collection.json
+
 ## Activity 3
 
 Due to time constraints I was not able to design db and load it to a database. But the summary of the DB design is here.
